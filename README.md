@@ -7,6 +7,13 @@ plain JavaScript and the Web Audio API. Created for a course at
 The visuals, the UI and the supporting infrastructure are provided for you. **Your task
 is to write the audio processor** — the part that reads the pattern and synthesises sound.
 
+## What you will learn
+
+By implementing the processor you will learn how real-time audio works in the browser:
+running DSP code on the `AudioWorklet` thread, keeping a steady playhead across audio
+blocks, synthesising tones from a step pattern, and sharing state between the UI and
+audio threads with `SharedArrayBuffer`.
+
 ## The idea
 
 A 16×16 grid. Each column is a step in time, each row is a pitch. Toggle cells on the
