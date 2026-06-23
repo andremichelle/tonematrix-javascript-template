@@ -5,7 +5,7 @@ import {readFile} from "node:fs/promises"
 import {extname, join, normalize} from "node:path"
 
 const ROOT = process.cwd()
-const PORT = 8080
+const PORT = 8081
 
 const TYPES = {
     ".html": "text/html; charset=utf-8",
