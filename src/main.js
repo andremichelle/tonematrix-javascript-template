@@ -24,8 +24,10 @@ import {View} from "./view.js"
     console.debug(`state: ${context.state}`)
 
     if (context.state !== "running") {
-        window.addEventListener("click", (event) => {
-            context.resume().then(console.debug, console.warn)
+        console.debug("context suspended, click to resume.")
+        window.addEventListener("click", async (event) => {
+            console.debug("resuming context...")
+            await context.resume().then(() => console.debug("resumed."), () => console.warn("cannot resume"))
             event.preventDefault()
         }, {passive: false, once: true})
     }
