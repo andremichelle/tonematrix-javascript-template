@@ -80,7 +80,7 @@ The included server sets the COOP/COEP headers that enable `SharedArrayBuffer`:
 node serve.mjs
 ```
 
-Then open **http://localhost:8080** in your browser (not the IDE's live-preview, it does
+Then open **http://localhost:8081** in your browser (not the IDE's live-preview, it does
 not set the required isolation headers).
 
 ## Controls

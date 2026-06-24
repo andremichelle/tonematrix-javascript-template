@@ -1,5 +1,5 @@
 // Static server with COOP/COEP so localhost is cross-origin isolated (enables SharedArrayBuffer).
-// Run:  node serve.mjs   ->  open http://localhost:8080  (NOT the IDE live-preview)
+// Run:  node serve.mjs   ->  open http://localhost:8081  (NOT the IDE live-preview)
 import {createServer} from "node:http"
 import {readFile} from "node:fs/promises"
 import {extname, join, normalize} from "node:path"

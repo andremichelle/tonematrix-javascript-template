@@ -21,13 +21,21 @@ import {View} from "./view.js"
     })
     node.connect(context.destination)
 
+    // Keep strong references so the graph is never garbage-collected.
+    // Without this, some browsers collect the AudioContext once the IIFE's
+    // closures are gone, silently stopping the worklet's process() loop.
+    self.audio = {context, node}
+
+    // print the current state of the AudioContext
     console.debug(`state: ${context.state}`)
 
     if (context.state !== "running") {
         console.debug("context suspended, click to resume.")
         window.addEventListener("click", async (event) => {
             console.debug("resuming context...")
-            await context.resume().then(() => console.debug("resumed."), () => console.warn("cannot resume"))
+            await context.resume().then(
+                () => console.debug(`state: ${context.state}`),
+                () => console.warn("cannot resume."))
             event.preventDefault()
         }, {passive: false, once: true})
     }
