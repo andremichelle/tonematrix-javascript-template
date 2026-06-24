@@ -21,6 +21,15 @@ import {View} from "./view.js"
     })
     node.connect(context.destination)
 
+    console.debug(`state: ${context.state}`)
+
+    if (context.state !== "running") {
+        window.addEventListener("click", (event) => {
+            context.resume().then(console.debug, console.warn)
+            event.preventDefault()
+        }, {passive: false, once: true})
+    }
+
     // prevent mobile quirks
     document.addEventListener("touchmove", (event) => event.preventDefault(), {passive: false})
     document.addEventListener("dblclick", (event) => event.preventDefault(), {passive: false})
